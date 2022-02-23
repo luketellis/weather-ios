@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+    var body: some View { NavigationView {
+        List(DataModel.data, id: \.self) { object in
+            HStack {
+                Image(systemName: object.icon)
+                Text("\(object.high)° C")
+                Text(object.day)
+            }
+        }.navigationTitle("Weather")
+    }
+
     }
 }
 
